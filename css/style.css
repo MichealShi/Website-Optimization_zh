@@ -6,8 +6,6 @@
     url("https://fonts.googleapis.com/css?family=Open+Sans");
   unicode-range: U+000-5FF;/* Latin glyphs */
 }
- 
-
 @font-face {
   font-family:"monoSpace";
   font-style:normal;
@@ -16,9 +14,6 @@
     url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Mono');
   unicode-range: U+000-5FF;/* Latin glyphs */
 }
-
-
-
 html {
   font-size: 100%;
   overflow-y: scroll;
