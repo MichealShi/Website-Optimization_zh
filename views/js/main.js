@@ -529,7 +529,7 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
-}
+// }
 
 // 在页面滚动时运行updatePositions函数
 window.addEventListener('scroll', updatePositions);
