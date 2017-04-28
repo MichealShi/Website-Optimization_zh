@@ -444,14 +444,27 @@ var resizePizzas = function(size) {
     return dx;
   }
 
-  // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    var arr = document.querySelectorAll(".randomPizzaContainer");
+    var dx = [];
+    for (var i = 0; i < arr.length; i++){
+      var dx[i] = determineDx(arr[i], size);
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+      var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
-  }
+  }  
+  
+// 遍历披萨的元素并改变它们的宽度
+//   function changePizzaSizes(size) {
+//     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+//       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+//       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+//       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+//     }
+//   }
 
   changePizzaSizes(size);
 
