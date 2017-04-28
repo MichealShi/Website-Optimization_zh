@@ -450,13 +450,14 @@ var resizePizzas = function(size) {
     for (var i = 0; i < arr.length; i++){
        dx[i] = determineDx(arr[i], size);
     }
-
-    for (var i = 0; i < arr.length; i++) {
+    for(var i = 0; i < arr.length; i++) {
       var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
+    }
+    for (var i = 0; i < arr.length; i++) {
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }  
-  
+  requestAnimationFrame(changePizzaSizes);
 // 遍历披萨的元素并改变它们的宽度
 //   function changePizzaSizes(size) {
 //     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
@@ -466,7 +467,7 @@ var resizePizzas = function(size) {
 //     }
 //   }
 
-  changePizzaSizes(size);
+
 
   // User Timing API 太棒了
   window.performance.mark("mark_end_resize");
