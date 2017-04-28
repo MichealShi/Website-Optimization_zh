@@ -497,7 +497,7 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  var arr;
+  var arr = [];
   var items = document.querySelectorAll('.mover');
   for(var i=0; i < items.length; i++) {
     arr[i] = items[i].basicLeft; 
