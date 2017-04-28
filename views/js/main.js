@@ -447,6 +447,7 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     var arr = document.querySelectorAll(".randomPizzaContainer");
     var dx = [];
+    //提前批量访问style，避免布局抖动     
     for (var i = 0; i < arr.length; i++){
        dx[i] = determineDx(arr[i], size);
     }
@@ -515,6 +516,7 @@ function updatePositions() {
     var st = document.body.scrollTop;
     var arr = [];
     var items = document.querySelectorAll('.mover');
+   //提前批量处理样式访问，避免布局抖动     
     for(var j=0; j < items.length; j++) {
      arr[j] = items[j].basicLeft; 
     }
@@ -523,6 +525,7 @@ function updatePositions() {
     items[i].style.left = arr[i] + 100 * phase + 'px';
     }
   }
+  //确保在帧开始的时候，计算样式并赋值
   requestAnimationFrame(getScrollTop);
   // 再次使用User Timing API。这很值得学习
   // 能够很容易地自定义测量维度
