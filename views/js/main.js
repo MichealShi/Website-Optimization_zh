@@ -494,19 +494,19 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // 基于滚动条位置移动背景中的披萨滑窗
-function updatePositions() {
-  frame++;
-  window.performance.mark("mark_start_frame");
-  var st = document.body.scrollTop;
-  var arr = [];
-  var items = document.querySelectorAll('.mover');
-  for(var i=0; i < items.length; i++) {
-    arr[i] = items[i].basicLeft; 
-  }
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((st / 1250) + (i % 5));
-    items[i].style.left = arr[i] + 100 * phase + 'px';
-  }
+// function updatePositions() {
+//   frame++;
+//   window.performance.mark("mark_start_frame");
+//   var st = document.body.scrollTop;
+//   var arr = [];
+//   var items = document.querySelectorAll('.mover');
+//   for(var i=0; i < items.length; i++) {
+//     arr[i] = items[i].basicLeft; 
+//   }
+//   for (var i = 0; i < items.length; i++) {
+//     var phase = Math.sin((st / 1250) + (i % 5));
+//     items[i].style.left = arr[i] + 100 * phase + 'px';
+//   }
 
   // 再次使用User Timing API。这很值得学习
   // 能够很容易地自定义测量维度
