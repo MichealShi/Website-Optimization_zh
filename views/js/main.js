@@ -544,6 +544,7 @@ function updatePositions() {
 //     var phase = Math.sin((st / 1250) + (i % 5));
     items[i].style.left = arr[i] + phase[i%5] + 'px';
       console.log(phase[i%5]);
+      console.log(arr[i]);
     }
   }
   //确保在帧开始的时候，计算样式并赋值
