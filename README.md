@@ -12,6 +12,7 @@
 
 * 第14行，为link标签添加asyc属性，去除阻止首页渲染的CSS
 * 第23行，为script标签添加async
+* 将style.css改为内嵌的css
 
 
 ## 对于views/js/main.js
@@ -22,3 +23,6 @@
 2. 避免滚动时抖动
   * 使用了requestAnimatioFrame(),确保样式改变在每帧的开始
   * 在改变元素样式之前，批量获得document.querySelectorAll('.mover').basicLeft的值
+3. 将dom访问缓存在变量中
+4. 简化newwidth的计算
+5. 将循环中的不必要循环的元素去除
