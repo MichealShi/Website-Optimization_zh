@@ -534,9 +534,15 @@ function updatePositions() {
     for(var j=0; j < items.length; j++) {
      arr[j] = items[j].basicLeft; 
     }
-    for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((st / 1250) + (i % 5));
-    items[i].style.left = arr[i] + 100 * phase + 'px';
+    //避免不必要的重复循环，
+    var phase = [];
+    for (var i = 0; i < 5; i++) {
+      phase.push(Math.sin((st / 1250) + (i %5));
+    }
+    var max = items.length;
+    for (var i = 0; i < max; i++) {
+//     var phase = Math.sin((st / 1250) + (i % 5));
+    items[i].style.left = arr[i] + phase[i%5] + 'px';
     }
   }
   //确保在帧开始的时候，计算样式并赋值
