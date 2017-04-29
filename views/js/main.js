@@ -543,6 +543,7 @@ function updatePositions() {
     for (var i = 0; i < max; i++) {
 //     var phase = Math.sin((st / 1250) + (i % 5));
     items[i].style.left = arr[i] + phase[i%5] + 'px';
+      console.log(phase[i%5]);
     }
   }
   //确保在帧开始的时候，计算样式并赋值
@@ -564,9 +565,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var num = window.innerHeight/10;
-  console.log("pizzas数量"+num);
-  for (var i = 0; i < num; i++) {
+//   var num = window.innerHeight/10;
+//   console.log("pizzas数量"+num);
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
