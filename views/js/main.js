@@ -452,11 +452,12 @@ var resizePizzas = function(size) {
        dx[i] = determineDx(arr[i], size);
     }
     //arr[i]元素
-    for(var i = 0; i < arr.length; i++) {
-      var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
-      console.log("pizza容器的宽度" + arr[i].offsetWidth);
-      console.log("新生成的newWidth" + newwidth);
-    }
+//     for(var i = 0; i < arr.length; i++) {
+//       var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
+//       console.log("pizza容器的宽度" + arr[i].offsetWidth);//每次生成的都一样
+//       console.log("新生成的newWidth" + newwidth);//每次生成的都一样
+//     }
+    var newwidth = (arr[0].offsetWidth+dx[0]) + 'px';
     //多次访问DOM非常低效，将dom访问缓存到变量中
      var randomPC = [];
     for (var k = 0; k < arr.length; k++) { 
