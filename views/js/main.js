@@ -454,8 +454,12 @@ var resizePizzas = function(size) {
     for(var i = 0; i < arr.length; i++) {
       var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
     }
+    //多次访问DOM非常低效，将dom访问缓存到变量中
+    for (var k = 0; k < arr.length; i++) { 
+      var randomPizzaContainer[k] =document.querySelectorAll(".randomPizzaContainer")[k];
+    }
     for (var i = 0; i < arr.length; i++) {
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+     randomPizzaContainer[k] = [i].style.width = newwidth;
     }
   }  
   changePizzaSizes(size);
