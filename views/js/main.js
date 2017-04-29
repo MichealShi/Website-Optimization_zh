@@ -565,6 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var num = Window.innerHeight/100;
+  console.log("pizzas数量"+num);
   for (var i = 0; i < num; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
