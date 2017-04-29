@@ -564,7 +564,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var num = window.innerHeight/100;
+  var num = window.innerHeight/10;
   console.log("pizzas数量"+num);
   for (var i = 0; i < num; i++) {
     var elem = document.createElement('img');
