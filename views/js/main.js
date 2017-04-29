@@ -529,7 +529,7 @@ function updatePositions() {
   function getScrollTop() {
     var st = document.body.scrollTop;
     var arr = [];
-    var items = document.querySelectorAll('.mover');
+    var items = document.getElementsByClassName('mover');
    //提前批量处理样式访问，避免布局抖动     
     for(var j=0; j < items.length; j++) {
      arr[j] = items[j].basicLeft; 
