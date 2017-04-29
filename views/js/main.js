@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var num = window.innerHeight/1000;
   console.log("pizzas数量"+num);
-  for (var i = 0; i < num; i++) {
+  for (var i = 0; i < 5; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
