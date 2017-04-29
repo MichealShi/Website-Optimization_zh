@@ -445,21 +445,24 @@ var resizePizzas = function(size) {
   }
 
   function changePizzaSizes(size) {
-    var arr = document.querySelectorAll(".randomPizzaContainer");
+    var arr = document.querySelectorAll(".randomPizzaContainer")[0];
     var dx = [];
     //提前批量访问style，避免布局抖动     
     for (var i = 0; i < arr.length; i++){
        dx[i] = determineDx(arr[i], size);
     }
+    //arr[i]元素
     for(var i = 0; i < arr.length; i++) {
       var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
+      console.log("pizza容器的宽度" + arr[i].offsetWidth);
+      console.log("新生成的newWidth" + newwidth);
     }
     //多次访问DOM非常低效，将dom访问缓存到变量中
     for (var k = 0; k < arr.length; i++) { 
       var randomPizzaContainer[k] =document.querySelectorAll(".randomPizzaContainer")[k];
     }
     for (var i = 0; i < arr.length; i++) {
-     randomPizzaContainer[k] = [i].style.width = newwidth;
+     randomPizzaContainer[k] = [i].style.width = newwidth + 'px';
     }
   }  
   changePizzaSizes(size);
