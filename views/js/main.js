@@ -458,7 +458,7 @@ var resizePizzas = function(size) {
       console.log("新生成的newWidth" + newwidth);
     }
     //多次访问DOM非常低效，将dom访问缓存到变量中
-    for (var k = 0; k < arr.length; i++) { 
+    for (var k = 0; k < arr.length; k++) { 
       var randomPizzaContainer[k] =document.querySelectorAll(".randomPizzaContainer")[k];
     }
     for (var i = 0; i < arr.length; i++) {
