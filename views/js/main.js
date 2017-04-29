@@ -445,7 +445,7 @@ var resizePizzas = function(size) {
   }
 
   function changePizzaSizes(size) {
-    var arr = document.getElementsByClassName(".randomPizzaContainer");
+    var arr = document.getElementsByClassName("randomPizzaContainer");
     var dx = [];
     //提前批量访问style，避免布局抖动     
     for (var i = 0; i < arr.length; i++){
