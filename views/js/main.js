@@ -458,13 +458,16 @@ var resizePizzas = function(size) {
 //       console.log("新生成的newWidth" + newwidth);//每次生成的都一样
 //     }
     var newwidth = (arr[0].offsetWidth+dx[0]) + 'px';
+    console.log("newwidth的最新值" + newwidth );
     //多次访问DOM非常低效，将dom访问缓存到变量中
      var randomPC = [];
     for (var k = 0; k < arr.length; k++) { 
        randomPC[k] =arr[k].style.width;
+      console.log("批量访问dom" + randomPC[k]);
     }
     for (var i = 0; i < arr.length; i++) {
      randomPC[i] = newwidth;
+      console.log("重置后的宽度" + randomPC[k]);
     }
   }  
   changePizzaSizes(size);
