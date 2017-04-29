@@ -462,11 +462,11 @@ var resizePizzas = function(size) {
     //多次访问DOM非常低效，将dom访问缓存到变量中
      var randomPC = [];
     for (var k = 0; k < arr.length; k++) { 
-       randomPC[k] =arr[k].style.width;
+       randomPC[k] =arr[k].style;
       console.log("批量访问dom" + randomPC[k]);
     }
     for (var i = 0; i < arr.length; i++) {
-     randomPC[i] = newwidth;
+     randomPC[i].width = newwidth;
       console.log("重置后的宽度" + randomPC[k]);
     }
   }  
