@@ -464,7 +464,7 @@ var resizePizzas = function(size) {
        randomPC[k] =arr[k];
     }
     for (var i = 0; i < arr.length; i++) {
-     randomPC[i] = [i].style.width = newwidth + 'px';
+     randomPC[i].style.width = newwidth + 'px';
     }
   }  
   changePizzaSizes(size);
