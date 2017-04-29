@@ -458,8 +458,9 @@ var resizePizzas = function(size) {
       console.log("新生成的newWidth" + newwidth);
     }
     //多次访问DOM非常低效，将dom访问缓存到变量中
+     var randomPC = [];
     for (var k = 0; k < arr.length; k++) { 
-      var randomPC[k] =arr[k];
+       randomPC[k] =arr[k];
     }
     for (var i = 0; i < arr.length; i++) {
      randomPC[i] = [i].style.width = newwidth + 'px';
