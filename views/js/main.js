@@ -445,7 +445,7 @@ var resizePizzas = function(size) {
   }
 
   function changePizzaSizes(size) {
-    var arr = document.querySelectorAll(".randomPizzaContainer");
+    var arr = document.getElementsByClassName(".randomPizzaContainer");
     var dx = [];
     //提前批量访问style，避免布局抖动     
     for (var i = 0; i < arr.length; i++){
@@ -461,10 +461,10 @@ var resizePizzas = function(size) {
     //多次访问DOM非常低效，将dom访问缓存到变量中
      var randomPC = [];
     for (var k = 0; k < arr.length; k++) { 
-       randomPC[k] =arr[k];
+       randomPC[k] =arr[k].style.width;
     }
     for (var i = 0; i < arr.length; i++) {
-     randomPC[i].style.width = newwidth + 'px';
+     randomPC[i] = newwidth + 'px';
     }
   }  
   changePizzaSizes(size);
