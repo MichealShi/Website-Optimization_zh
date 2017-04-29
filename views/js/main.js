@@ -564,7 +564,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var num = Window.innerHeight/100px * 3;
+  var num = Window.innerHeight/100 * 6;
   for (var i = 0; i < num; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
