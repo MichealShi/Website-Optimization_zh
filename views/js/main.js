@@ -537,7 +537,7 @@ function updatePositions() {
     //避免不必要的重复循环，
     var phase = [];
     for (var i = 0; i < 5; i++) {
-      phase.push(Math.sin((st / 1250) + (i %5));
+      phase.push(Math.sin((st / 1250) + (i %5)));
     }
     var max = items.length;
     for (var i = 0; i < max; i++) {
