@@ -417,10 +417,10 @@ var resizePizzas = function(size) {
   }
 
   changeSliderLabel(size);
- 
+
    // 返回不同的尺寸以将披萨元素由一个尺寸改成另一个尺寸。由changePizzaSlices(size)函数调用
   function determineDx (elem, size) {
-   var oldWidth = elem.offsetWidth;
+    var oldWidth = elem.offsetWidth;
     var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
@@ -444,43 +444,16 @@ var resizePizzas = function(size) {
     return dx;
   }
 
+  // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    var arr = document.getElementsByClassName("randomPizzaContainer");
-    var dx = [];
-    //提前批量访问style，避免布局抖动     
-//     for (var i = 0; i < arr.length; i++){
-       dx[0] = determineDx(arr[0], size);
-//     }
-    //arr[i]元素
-//     for(var i = 0; i < arr.length; i++) {
-//       var newwidth = (arr[i].offsetWidth + dx[i]) + 'px';
-//       console.log("pizza容器的宽度" + arr[i].offsetWidth);//每次生成的都一样
-//       console.log("新生成的newWidth" + newwidth);//每次生成的都一样
-//     }
-    var newwidth = (arr[0].offsetWidth+dx[0]) + 'px';
-//     console.log("newwidth的最新值" + newwidth );
-    //多次访问DOM非常低效，将dom访问缓存到变量中
-     var randomPC = [];
-    for (var k = 0; k < arr.length; k++) { 
-       randomPC[k] =arr[k].style;
-//       console.log("批量访问dom" + randomPC[k]);
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
-    for (var i = 0; i < arr.length; i++) {
-     randomPC[i].width = newwidth;
-//       console.log("重置后的宽度" + randomPC[i].width);
-    }
-  }  
+  }
+
   changePizzaSizes(size);
-// 遍历披萨的元素并改变它们的宽度
-//   function changePizzaSizes(size) {
-//     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-//       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-//       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-//       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-//     }
-//   }
-
-
 
   // User Timing API 太棒了
   window.performance.mark("mark_end_resize");
@@ -492,10 +465,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // 收集timing数据
 
 // 这个for循环在页面加载时创建并插入了所有的披萨
-//去掉不需要循环的元素
-var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  //var pizzasDiv = document.getElementById("randomPizzas");
+  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -526,29 +497,13 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  function getScrollTop() {
-    var st = document.body.scrollTop;
-    var arr = [];
-    var items = document.getElementsByClassName('mover');
-   //提前批量处理样式访问，避免布局抖动     
-    for(var j=0; j < items.length; j++) {
-     arr[j] = items[j].basicLeft; 
-    }
-    //避免不必要的重复循环，
-    var phase = [];
-    for (var i = 0; i < 5; i++) {
-      phase.push(Math.sin((st / 1250) + (i %5)));
-    }
-    var max = items.length;
-    for (var i = 0; i < max; i++) {
-//     var phase = Math.sin((st / 1250) + (i % 5));
-    items[i].style.left = arr[i] + phase[i%5] + 'px';
-      console.log(phase[i%5]);
-      console.log(arr[i]);
-    }
+
+  var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
-  //确保在帧开始的时候，计算样式并赋值
-  requestAnimationFrame(getScrollTop);
+
   // 再次使用User Timing API。这很值得学习
   // 能够很容易地自定义测量维度
   window.performance.mark("mark_end_frame");
@@ -566,8 +521,6 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-//   var num = window.innerHeight/10;
-//   console.log("pizzas数量"+num);
   for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
