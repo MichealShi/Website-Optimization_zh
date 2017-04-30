@@ -514,7 +514,7 @@ function updatePositions() {
 //     bodyScrollTop.push(document.body.scrollTop);
 //     console.log("body距离顶部的距离" + bodyScrollTop[i]);
 //   }
-  function animateChange() {
+//   function animateChange() {
 //   1.body距离顶部的距离都一样
   var bodyScrollTop = document.body.scrollTop;
   //2. 提前将items[i].style缓存在变量中
@@ -532,8 +532,8 @@ function updatePositions() {
 //     console.log("循环中的DOM访问"+items[i].style.left);
     itemsStyle[i].left = items[i].basicLeft + 100 * phase + 'px';
   }
-  }
-  requestAnimationFrame(animateChange);
+//   }
+//   requestAnimationFrame(animateChange);
 
   // 再次使用User Timing API。这很值得学习
   // 能够很容易地自定义测量维度
