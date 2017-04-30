@@ -518,7 +518,7 @@ function updatePositions() {
   var itemsStyle = [];
   for (var i = 0; i < items.length; i++) {
    itemsStyle.push(items[i].style);
-    console.log("批量缓存的DOM访问："+itemsStyle.left);
+    console.log("批量缓存的DOM访问："+itemsStyle[i].left);
    }
     for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));
