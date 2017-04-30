@@ -533,8 +533,10 @@ function updatePositions() {
   }
 }
   //第3点，添加动画
+
+
 // 在页面滚动时运行updatePositions函数
-window.addEventListener('scroll',  requestAnimationFrame(updatePositions));
+window.addEventListener('scroll', updatePositions);
 
 // 当页面加载时生成披萨滑窗
 document.addEventListener('DOMContentLoaded', function() {
