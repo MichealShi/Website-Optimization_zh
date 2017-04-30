@@ -514,16 +514,20 @@ function updatePositions() {
 //     bodyScrollTop.push(document.body.scrollTop);
 //     console.log("body距离顶部的距离" + bodyScrollTop[i]);
 //   }
-//   body距离顶部的距离都一样
-  bodyScrollTop = document.body.scrollTop;
+//   1.body距离顶部的距离都一样
+  var bodyScrollTop = document.body.scrollTop;
   //2. 提前将items[i].style缓存在变量中
   var itemsStyle = [];
   for (var i = 0; i < items.length; i++) {
    itemsStyle.push(items[i].style);
     console.log("批量缓存的DOM访问："+itemsStyle[i].left);
    }
+   //   4. 去除重复的计算
+  for (var i = 0; i < 5; i++) {
+    var phase = Math.sin((bodyScrollTop / 1250) + (i % 5)); 
+  }
     for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));
+    //var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));    
     console.log("循环中的DOM访问"+items[i].style.left);
     itemsStyle[i].left = items[i].basicLeft + 100 * phase + 'px';
   }
