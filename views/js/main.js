@@ -520,7 +520,7 @@ function updatePositions() {
   var itemsStyle = [];
   for (var i = 0; i < items.length; i++) {
    itemsStyle.push(items[i].style);
-    console.log("批量缓存的DOM访问："+itemsStyle[i].left);
+//     console.log("批量缓存的DOM访问："+itemsStyle[i].left);
    }
    //   4. 去除重复的计算
   for (var i = 0; i < 5; i++) {
@@ -528,7 +528,7 @@ function updatePositions() {
   }
     for (var i = 0; i < items.length; i++) {
     //var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));    
-    console.log("循环中的DOM访问"+items[i].style.left);
+//     console.log("循环中的DOM访问"+items[i].style.left);
     itemsStyle[i].left = items[i].basicLeft + 100 * phase + 'px';
   }
 
