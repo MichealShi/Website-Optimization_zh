@@ -499,7 +499,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-//第一次修改：需要改进的地方有三点20170430.12：17
+//第一次修改：需要改进的地方有三点 20170430.12：17
 //   1. 在循环中同时访问DOM和修改style会强制布局，形成布局抖动
 //   2. 提前将items[i].style缓存在变量中，
 //   3. 动画，使用requestAnimationFrame()
@@ -516,12 +516,13 @@ function updatePositions() {
   //2. 提前将items[i].style缓存在变量中
   var itemsStyle = [];
   for (var i = 0; i < items.length; i++) {
-    itemsStyle.pushu(items[i].style);
+    itemsStyle.push(items[i].style);
   }
     for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));
     itemsStyle.left = items[i].basicLeft + 100 * phase + 'px';
   }
+
   // 再次使用User Timing API。这很值得学习
   // 能够很容易地自定义测量维度
   window.performance.mark("mark_end_frame");
@@ -531,9 +532,9 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
-
+  //第3点，添加动画
 // 在页面滚动时运行updatePositions函数
-window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll',  requestAnimationFrame(updatePositions));
 
 // 当页面加载时生成披萨滑窗
 document.addEventListener('DOMContentLoaded', function() {
