@@ -523,16 +523,17 @@ function updatePositions() {
    itemsStyle.push(items[i].style);
 //     console.log("批量缓存的DOM访问："+itemsStyle[i].left);
    }
-   //   4. 去除重复的计算
-//   for (var i = 0; i <items.length; i++) {
-//     var phase = [];
-//     var phase.push(Math.sin((bodyScrollTop / 1250) + (i % 5))); 
-//     console.log(phase[i]);
-//   }
+    // 4. 去除重复的计算
+  for (var i = 0; i <5; i++) {
+    var phase = [];
+    var num = Math.sin((bodyScrollTop / 1250) + (i % 5))
+    var phase.push(num); 
+    console.log(phase[i]);
+  }
     for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((bodyScrollTop / 1250) + (i % 5));    
 //     console.log("循环中的DOM访问"+items[i].style.left);
-    itemsStyle[i].left = items[i].basicLeft + 100 * (phase) + 'px';
+    itemsStyle[i].left = items[i].basicLeft + 100 * phase[i%5] + 'px';
   }
   }
   requestAnimationFrame(animateChange);
