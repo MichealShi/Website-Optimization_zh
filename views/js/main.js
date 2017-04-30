@@ -512,14 +512,17 @@ function updatePositions() {
   var bodyScrollTop = [];
   for (var i = 0; i < items.length; i++) {
     bodyScrollTop.push(document.body.scrollTop);
+    console.log("body距离顶部的距离" + document.body.scrollTop);
   }
   //2. 提前将items[i].style缓存在变量中
-//   var itemsStyle = [];
-//   for (var i = 0; i < items.length; i++) {
-//     itemsStyle.push(items[i].style);
-//   }
+  var itemsStyle = [];
+  for (var i = 0; i < items.length; i++) {
+   itemsStyle.push(items[i].style);
+    console.log("批量缓存的DOM访问："+itemsStyle.left);
+   }
     for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));
+    console.log("循环中的DOM访问"+items[i].style.left);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
