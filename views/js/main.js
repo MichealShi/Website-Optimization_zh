@@ -499,11 +499,29 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+//第一次修改：需要改进的地方有三点20170430.12：17
+//   1. 在循环中同时访问DOM和修改style会强制布局，形成布局抖动
+//   2. 提前将items[i].style缓存在变量中，
+//   3. 动画，使用requestAnimationFrame()
+//   for (var i = 0; i < items.length; i++) {
+//     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+//     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+//   }
+// 首先修改第1.2点
+  //1.批量访问DOM
+  var bodyScrollTop = [];
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    bodyScrollTop.push(document.body.scrollTop);
   }
-
+  //2. 提前将items[i].style缓存在变量中
+  var itemsStyle = [];
+  for (var i = 0; i < items.length; i++) {
+    itemsStyle.pushu(items[i].style);
+  }
+    for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));
+    itemsStyle.left = items[i].basicLeft + 100 * phase + 'px';
+  }
   // 再次使用User Timing API。这很值得学习
   // 能够很容易地自定义测量维度
   window.performance.mark("mark_end_frame");
