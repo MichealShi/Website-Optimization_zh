@@ -509,11 +509,13 @@ function updatePositions() {
 //   }
 // 首先修改第1.2点
   //1.批量访问DOM
-  var bodyScrollTop = [];
-  for (var i = 0; i < items.length; i++) {
-    bodyScrollTop.push(document.body.scrollTop);
-    console.log("body距离顶部的距离" + bodyScrollTop[i]);
-  }
+//   var bodyScrollTop = [];
+//   for (var i = 0; i < items.length; i++) {
+//     bodyScrollTop.push(document.body.scrollTop);
+//     console.log("body距离顶部的距离" + bodyScrollTop[i]);
+//   }
+//   body距离顶部的距离都一样
+  bodyScrollTop = document.body.scrollTop;
   //2. 提前将items[i].style缓存在变量中
   var itemsStyle = [];
   for (var i = 0; i < items.length; i++) {
