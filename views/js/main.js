@@ -527,6 +527,7 @@ function updatePositions() {
   for (var i = 0; i <items.length; i++) {
     var phase = [];
     var phase.push(Math.sin((bodyScrollTop / 1250) + (i % 5))); 
+    console.log(phase[i]);
   }
     for (var i = 0; i < items.length; i++) {
     //var phase = Math.sin((bodyScrollTop[i] / 1250) + (i % 5));    
