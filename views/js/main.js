@@ -566,10 +566,11 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var elem = document.createElement('img');
+
   //I really don't know how to fix this.
   for (var i = 0; i < 200; i++) {
-    console.log(window.innerHeight);
+//     console.log(window.innerHeight);
+    var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
