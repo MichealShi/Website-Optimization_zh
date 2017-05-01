@@ -568,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 
   var num = (window.innerHeight)/s*cols;
-  console.log("滚动披萨的个数"+num);
+//   console.log("滚动披萨的个数"+num);
   for (var i = 0; i < num; i++) {
 //     console.log(window.innerHeight);
     var elem = document.createElement('img');
