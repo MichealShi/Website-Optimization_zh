@@ -568,6 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var num = (window.innerHeight)/s*cols;
 //   console.log("滚动披萨的个数"+num);
+  var movingPizzas1 = document.querySelector("#movingPizzas1");
   var elem;
   for (var i = 0; i < num; i++) {
     elem = document.createElement('img');
@@ -577,7 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas1.appendChild(elem);
   }
   updatePositions();
 });
