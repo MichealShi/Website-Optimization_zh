@@ -446,9 +446,18 @@ var resizePizzas = function(size) {
 
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    //提前批量访问DOM　删除４５５
-    var dx = [];
+    
+    
+    
+    
+    
+    
+    
+    
+    //dx[i]的值都是一样的
+    var dx;
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      console.log("length"+document.querySelectorAll(".randomPizzaContainer").length);
       dx.push(determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size));
       console.log("dx[i] 的值"+dx[i]);
     }
