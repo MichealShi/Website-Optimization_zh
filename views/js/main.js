@@ -567,8 +567,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 
-  //I really don't know how to fix this.
-  for (var i = 0; i < 200; i++) {
+  var num = (window.innerHeight)/s*cols;
+  for (var i = 0; i < num; i++) {
 //     console.log(window.innerHeight);
     var elem = document.createElement('img');
     elem.className = 'mover';
