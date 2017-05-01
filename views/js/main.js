@@ -453,7 +453,7 @@ var resizePizzas = function(size) {
     for (var i = 0; i < length; i++) {
       randomPizzaContainerStyle.push(randomPizzaContainer[i].style);
     }
-    
+    var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';
     
     
     
@@ -468,10 +468,10 @@ var resizePizzas = function(size) {
     
     for (var i = 0; i < length; i++) {
 //       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
-      console.log("newwidth"+newwidth);
+//       var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
+//       console.log("newwidth"+newwidth);
       randomPizzaContainerStyle[i].width = newwidth;
-      console.log("querySelectorAll的值"+randomPizzaContainer[i]);
+//       console.log("querySelectorAll的值"+randomPizzaContainer[i]);
     }
   }
 
