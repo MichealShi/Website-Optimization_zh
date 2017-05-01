@@ -569,9 +569,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var num = (window.innerHeight)/s*cols;
 //   console.log("滚动披萨的个数"+num);
+  var elem；
   for (var i = 0; i < num; i++) {
-//     console.log(window.innerHeight);
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
