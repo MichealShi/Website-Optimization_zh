@@ -447,25 +447,30 @@ var resizePizzas = function(size) {
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
     var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
-    
-    
+    var length = randomPizzaContainer.length;
+    var dx = determineDx(randomPizzaContainer[0], size);
+    var randomPizzaContainerStyle = [];
+    for (var i = 0; i < length; i++) {
+      randomPizzaContainerStyle.push(randomPizzaContainer[i].style);
+    }
     
     
     
     
     
     //dx[i]的值都是一样的
-    var dx = [];
-    for (var i = 0; i < randomPizzaContainer.length; i++) {
-      console.log("length"+randomPizzaContainer.length);
-      dx.push(determineDx(randomPizzaContainer[i], size));
-      console.log("dx[i] 的值"+dx[i]);
-    }
+//     var dx = [];
+//     for (var i = 0; i < length; i++) {
+//       console.log("length"+length);
+//       dx.push(determineDx(randomPizzaContainer[i], size));
+//       console.log("dx[i] 的值"+dx[i]);
+//     }
     
-    for (var i = 0; i < randomPizzaContainer.length; i++) {
+    for (var i = 0; i < length; i++) {
 //       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (randomPizzaContainer[i].offsetWidth + dx[i]) + 'px';
-      randomPizzaContainer[i].style.width = newwidth;
+      var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
+      console.log("newwidth"+newwidth);
+      randomPizzaContainerStyle[i].width = newwidth;
       console.log("querySelectorAll的值"+randomPizzaContainer[i]);
     }
   }
