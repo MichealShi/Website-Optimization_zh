@@ -455,7 +455,7 @@ var resizePizzas = function(size) {
     
     
     //dx[i]的值都是一样的
-    var dx;
+    var dx = [];
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       console.log("length"+document.querySelectorAll(".randomPizzaContainer").length);
       dx.push(determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size));
